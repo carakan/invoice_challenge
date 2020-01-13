@@ -1,9 +1,41 @@
-<h1>Invoice {{@model.id}}</h1>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+      <LinkTo @route="invoices">
+        Home
+      </LinkTo>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">
+      Invoice
+    </li>
+  </ol>
+</nav>
+
+<h1>
+  Invoice {{@model.id}}
+</h1>
 
 <p>
-  Client: <strong>{{@model.client}}</strong>
+  Client:
+  <strong>
+    {{@model.client}}
+  </strong>
 </p>
 
-<code>{{format-number @model.total}}</code>
+<ul>
+  {{#each @model.items as |item|}}
+    <li>
+      {{item.description}}
+      <b>
+        {{format-number item.subtotal style="currency" currency="USD"}}
+      </b>
+    </li>
+  {{/each}}
+</ul>
+
+TOTAL:
+<code>
+  {{format-number @model.total style="currency" currency="USD"}}
+</code>
 
 {{format-date @model.createdAt}}

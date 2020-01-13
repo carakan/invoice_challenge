@@ -5,6 +5,6 @@ export default class Invoice extends Route.extend({
 }) {
   // normal class body definition here
   model(params) {
-    return this.store.findRecord('invoice', params.invoice_id);
+    return this.store.findRecord('invoice', params.invoice_id, { include: 'items' });
   }
 }
