@@ -1,0 +1,9 @@
+<h1>Invoices</h1>
+
+<ul>
+  {{#each @model as |invoice|}}
+    <li>
+      <LinkTo @route="invoice" @model={{invoice.id}}>Invoice {{invoice.id}}</LinkTo>
+    </li>
+  {{/each}}
+</ul>
