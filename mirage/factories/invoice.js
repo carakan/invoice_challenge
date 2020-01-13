@@ -6,7 +6,7 @@ export default Factory.extend({
     return faker.name.firstName();
   },
 
-  body() {
+  total() {
     return faker.finance.amount();
   },
 

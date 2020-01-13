@@ -1,9 +1,13 @@
-<h1>Invoices</h1>
+<h1>
+  Invoices
+</h1>
 
 <ul>
   {{#each @model as |invoice|}}
     <li>
-      <LinkTo @route="invoice" @model={{invoice.id}}>Invoice {{invoice.id}}</LinkTo>
+      <LinkTo @route="invoice" @model={{invoice.id}}>
+        Invoice {{invoice.id}} - {{format-number invoice.total style="currency" currency="USD"}}
+      </LinkTo>
     </li>
   {{/each}}
 </ul>
