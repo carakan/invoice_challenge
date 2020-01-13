@@ -1,1 +1,9 @@
-{{outlet}}
+<h1>Invoice {{@model.id}}</h1>
+
+<p>
+  Client: <strong>{{@model.client}}</strong>
+</p>
+
+<code>{{format-number @model.total}}</code>
+
+{{format-date @model.createdAt}}
