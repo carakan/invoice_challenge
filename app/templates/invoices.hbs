@@ -13,9 +13,10 @@
 <ul>
   {{#each @model as |invoice|}}
     <li>
-      <LinkTo @route="invoice" @model={{invoice.id}}>
+      <LinkTo @route="invoice" @model={{invoice.id}} title="show invoice">
         Invoice {{invoice.id}} - {{format-number invoice.total style="currency" currency="USD"}}
       </LinkTo>
+      <Invoice::Delete @invoice={{invoice}} />
     </li>
   {{/each}}
 </ul>
